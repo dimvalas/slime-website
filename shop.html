@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SlimeSMP | Shop</title>
+    <title>SlimeSMP | Home</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="shop.css">
     <link rel="shortcut icon" href="slimesmplogo-removebg-preview.png" type="image/x-icon">
@@ -24,8 +24,8 @@
             </a>
         </div>
         <div class="middle-nav">
-            <a href="index.html" class="shoplink">Home</a>
-            <a href="vote.html" class="votelink">Vote</a>
+            <a href="shop.html" class="shoplink">Shop</a>
+            <a href="/" class="votelink">Vote</a>
         </div>
         <div class="nav-icons">
             <div class="basket-nav" style="position:relative;display:inline-block;cursor:pointer;">
@@ -38,22 +38,14 @@
             </div>
         </div>
     </section>
-    <main class="main-hero shop-hero">
-        <h1 class="ranks-title">Have an advantage with ranks.</h1>
-        <div class="rank-cards"></div>
-    </main>
-
-    <!-- Slide-in Basket Menu -->
-    <div id="basket-menu" class="basket-menu">
-        <div class="basket-header">
-            <h3>Your Basket</h3>
-            <button id="basket-close-btn" class="basket-close-btn" title="Close">&times;</button>
+    <main class="main-hero">
+        <h1>Your Minecraft experience reimagined</h1>
+        <h1 class="subtitle-green">We support Java and Bedrock</h1>
+        <div class="server-ip-container">
+            <p class="server-ip" id="server-ip-text">play.slime-smp.com</p>
+            <button class="copy-ip-btn" id="copy-ip-btn">Click to Copy IP</button>
         </div>
-        <ul id="basket-list"></ul>
-        <div id="basket-total"></div>
-        <button id="basket-checkout-btn" class="basket-checkout-btn">Checkout</button>
-    </div>
-
+    </main>
     <!-- Profile Modal -->
     <div id="profile-modal" class="profile-modal">
         <div class="profile-modal-content">
@@ -63,26 +55,32 @@
             <button id="save-username-btn">Save</button>
         </div>
     </div>
-
+    <div id="basket-menu" class="basket-menu">
+        <div class="basket-header">
+            <h3>Your Basket</h3>
+            <button id="basket-close-btn" class="basket-close-btn" title="Close">&times;</button>
+        </div>
+        <ul id="basket-list"></ul>
+        <div id="basket-total"></div>
+        <button id="basket-checkout-btn" class="basket-checkout-btn">Checkout</button>
+    </div>
     <!-- Payment Modal -->
     <div id="payment-modal" class="profile-modal">
         <div class="profile-modal-content" style="align-items:center;">
             <span class="profile-modal-close" id="payment-modal-close">&times;</span>
             <h2>Pay with Solana</h2>
-            <div id="solana-icon" class="solana-icon-container">
-    <img src="solanaicon.png" alt="Solana" class="solana-icon" />
-</div>
+            <div id="solana-qr"></div>
             <div id="solana-payment-info" style="margin:18px 0 10px 0;"></div>
             <input type="text" id="solana-txid-input" placeholder="Paste your transaction ID here" style="margin-bottom:12px;width:100%;">
             <button id="submit-txid-btn">Submit</button>
         </div>
     </div>
     <div id="audio-bar" class="audio-bar">
-    <button id="audio-toggle" class="audio-toggle">
-        <span id="audio-icon" class="audio-icon">🔇</span>
-    </button>
-    <input id="audio-slider" class="audio-slider" type="range" min="0" max="1" step="0.01" value="0.5">
-</div>
+        <button id="audio-toggle" class="audio-toggle">
+            <span id="audio-icon" class="audio-icon">🔇</span>
+        </button>
+        <input id="audio-slider" class="audio-slider" type="range" min="0" max="1" step="0.01" value="0.5">
+    </div>
     <audio id="bg-audio" src="music [ C418 Mutation ].mp3" loop preload="auto" muted></audio>
     <script src="main.js" defer></script>
     <footer class="footer">
