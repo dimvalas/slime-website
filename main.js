@@ -286,4 +286,66 @@ window.addEventListener('DOMContentLoaded', function() {
     updateBasketCount();
     setupShopEvents();
     updateProfileDisplay();
+
+    const audio = document.getElementById('bg-audio');
+    const audioToggle = document.getElementById('audio-toggle');
+    const audioIcon = document.getElementById('audio-icon');
+    const audioSlider = document.getElementById('audio-slider');
+
+    if (audio && audioToggle && audioIcon && audioSlider) {
+        audio.volume = 0.5;
+        audio.muted = true;
+        let userEnabled = false;
+
+        function updateAudioUI() {
+            if (audio.muted || audio.volume === 0) {
+                audioIcon.textContent = '🔇';
+                audioToggle.style.background = 'linear-gradient(90deg,#444,#222)';
+                audioIcon.style.color = '#aaffaa';
+            } else if (audio.volume < 0.33) {
+                audioIcon.textContent = '🔈';
+                audioToggle.style.background = 'linear-gradient(90deg,#00ff99,#00cc66)';
+                audioIcon.style.color = '#111';
+            } else if (audio.volume < 0.66) {
+                audioIcon.textContent = '🔉';
+                audioToggle.style.background = 'linear-gradient(90deg,#00ff99,#00cc66)';
+                audioIcon.style.color = '#111';
+            } else {
+                audioIcon.textContent = '🔊';
+                audioToggle.style.background = 'linear-gradient(90deg,#00ff99,#00cc66)';
+                audioIcon.style.color = '#111';
+            }
+        }
+
+        audioToggle.addEventListener('click', () => {
+            if (!userEnabled) {
+                audio.muted = false;
+                audio.volume = audioSlider.value;
+                audio.play().catch(() => {}); // Try to play, ignore errors
+                userEnabled = true;
+            } else {
+                audio.muted = !audio.muted;
+                if (!audio.muted) {
+                    audio.play().catch(() => {});
+                }
+            }
+            updateAudioUI();
+        });
+
+        audioSlider.addEventListener('input', () => {
+            audio.volume = audioSlider.value;
+            if (audio.volume === 0) {
+                audio.muted = true;
+            } else {
+                audio.muted = false;
+                if (!userEnabled) {
+                    audio.play();
+                    userEnabled = true;
+                }
+            }
+            updateAudioUI();
+        });
+
+        updateAudioUI();
+    }
 });
