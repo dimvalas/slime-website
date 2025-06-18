@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SlimeSMP | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="shop.css">
+    <link rel="shortcut icon" href="slimesmplogo-removebg-preview.png" type="image/x-icon">
+</head>
+<body>
+    <div id="loading-overlay">
+        <div class="loading-logo-container">
+            <img src="slimesmplogo-removebg-preview.png" alt="SlimeSMP Logo" class="loading-logo">
+        </div>
+        <div class="loading-bar-outer">
+            <div class="loading-bar-inner"></div>
+        </div>
+    </div>
+    <section class="navigation">
+        <div class="left-nav">
+            <a href="index.html" class="logo">
+                <img src="slimesmplogo-removebg-preview.png" alt="SlimeSMP Logo">
+            </a>
+        </div>
+        <div class="middle-nav">
+            <a href="shop.html" class="shoplink">Shop</a>
+            <a href="/" class="votelink">Vote</a>
+        </div>
+        <div class="nav-icons">
+            <div class="basket-nav" style="position:relative;display:inline-block;cursor:pointer;">
+                <img src="basket-icon.png" alt="Basket" id="basket-icon" style="width:32px;height:32px;">
+                <span id="basket-count" style="position:absolute;top:-8px;right:-8px;background:#0f0;color:#111;border-radius:50%;padding:2px 7px;font-size:13px;display:none;">0</span>
+            </div>
+            <div class="profile-nav" id="profile-nav">
+                <img src="user-account.png" alt="Profile" id="profile-icon" class="profile-icon">
+                <span id="profile-username" class="profile-username" style="display:none;"></span>
+            </div>
+        </div>
+    </section>
+    <main class="main-hero">
+        <h1>Your Minecraft experience reimagined</h1>
+        <h1 class="subtitle-green">We support Java and Bedrock</h1>
+        <div class="server-ip-container">
+            <p class="server-ip" id="server-ip-text">play.slime-smp.com</p>
+            <button class="copy-ip-btn" id="copy-ip-btn">Click to Copy IP</button>
+        </div>
+    </main>
+    <!-- Profile Modal -->
+    <div id="profile-modal" class="profile-modal">
+        <div class="profile-modal-content">
+            <span class="profile-modal-close" id="profile-modal-close">&times;</span>
+            <h2>Set Your Minecraft Username</h2>
+            <input type="text" id="minecraft-username-input" placeholder="Minecraft Username" maxlength="16" autocomplete="off">
+            <button id="save-username-btn">Save</button>
+        </div>
+    </div>
+    <div id="basket-menu" class="basket-menu">
+        <div class="basket-header">
+            <h3>Your Basket</h3>
+            <button id="basket-close-btn" class="basket-close-btn" title="Close">&times;</button>
+        </div>
+        <ul id="basket-list"></ul>
+        <div id="basket-total"></div>
+        <button id="basket-checkout-btn" class="basket-checkout-btn">Checkout</button>
+    </div>
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="profile-modal">
+        <div class="profile-modal-content" style="align-items:center;">
+            <span class="profile-modal-close" id="payment-modal-close">&times;</span>
+            <h2>Pay with Solana</h2>
+            <div id="solana-qr"></div>
+            <div id="solana-payment-info" style="margin:18px 0 10px 0;"></div>
+            <input type="text" id="solana-txid-input" placeholder="Paste your transaction ID here" style="margin-bottom:12px;width:100%;">
+            <button id="submit-txid-btn">Submit</button>
+        </div>
+    </div>
+    <script src="main.js" defer></script>
+    <footer class="footer">
+        © SlimeSMP 2025, All Rights Reserved
+    </footer>
+</body>
+</html>
